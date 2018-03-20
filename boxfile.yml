@@ -1,7 +1,7 @@
 run.config:
   engine: nodejs
   engine.config:
-    runtime: nodejs-8.9
+    runtime: nodejs-9.8.0
   extra_packages:
     - nginx
 web.main:

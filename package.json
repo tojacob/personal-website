@@ -1,20 +1,34 @@
 {
   "name": "web_dev",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal site",
   "main": "index.js",
+  "private": true,
+  "author": "https://github.com/jsgcode",
+  "license": "ISC",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "scripts": {
     "start": "node ./index.js",
     "start-dev": "nodemon --ignore ./node_modules"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
     "helmet": "^3.12.0"
   },
   "devDependencies": {
-    "nodemon": "^1.17.2"
+    "autoprefixer": "^8.2.0",
+    "browser-sync": "^2.23.6",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-purgecss": "^0.20.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "nodemon": "^1.17.2",
+    "purgecss-from-html": "^1.0.0"
   }
 }

@@ -1,3 +1,4 @@
-@import 'tools/bootstrap-reboot';
-@import 'tools/bootstrap-grid';
-@import 'views/home';
+@import 'partials/_variables.scss';
+@import 'partials/reboot';
+@import 'partials/home-header';
+@import 'partials/utilities';

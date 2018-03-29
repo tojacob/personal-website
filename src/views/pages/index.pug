@@ -1,0 +1,49 @@
+extends ../includes/_layout
+include ../mixins/_footer
+
+//- Home == hm
+block content
+
+  //- Header
+  header.hm_header
+    .hm_header__main.px-16
+      p.hm_main__text.
+        "La <b>ayuda</b> que necesitas para hacer realidad tu <b>proyecto</b> digital"
+    .hm_header__down.px-16
+      a.hm_down__link(href='#letsDoIt')
+        img.hm_down__icon(src='src/pictures/icon/arrow_down_24.svg')
+
+  //- Content
+  section#letsDoIt.container: .hm_content
+
+    .hm_content__col
+      .box
+        h1.box__title.mb-0 Jacob Samuel G.
+        h2.box__subtitle Programador web full-stack
+        p.
+          Estoy especializado en el desarrollo de productos mínimos viables basados en la metodología Lean.
+        p.mt-8.
+          Puedo ayudarte en la creación de tu nuevo proyecto digital y guiarte paso a paso durante todas sus etapas, hasta que tu servicio se convierta en una opción rentable y relevante en el mercado.
+
+    .hm_content__col
+      .box
+        h2.box__title Hablemos sobre tu proyecto
+        .hm_talk.mt-16
+          img.hm_talk__icon(src='src/pictures/icon/email_16.svg')
+          p jsgcontacto@gmail.com
+        .hm_talk
+          img.hm_talk__icon(src='src/pictures/icon/phone_16.svg')
+          p 938 146 02 85
+
+      .box
+        h2.box__title Escribí algunos artículos que podrían interesarte
+        .hm_articles
+          a.hm_articles__link(href='#') Introducción a las metodologías agiles.
+          a.hm_articles__link(href='#') Que es Lean Startup y porque deberías utilizarlo.
+          a.hm_articles__link(href='#') Los 5 beneficios del MVP.
+
+  +footer('home')
+
+
+
+

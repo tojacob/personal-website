@@ -29,6 +29,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "nodemon": "^1.17.2",
-    "purgecss-from-html": "^1.0.0"
+    "purgecss-from-html": "^1.0.0",
+    "tailwindcss": "^0.5.1"
   }
 }

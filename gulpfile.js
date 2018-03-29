@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
+const tailwindcss = require('tailwindcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const purgecss = require('gulp-purgecss');
@@ -17,7 +18,7 @@ const purgeHtml = require('purgecss-from-html');
 // Compile pug to html
 gulp.task('views', function buildHTML() {
   return gulp
-    .src('./src/views/**/*.pug')
+    .src(['./src/views/pages/**/*.pug'])
     .pipe(pug())
     .pipe(gulp.dest('./public/'));
 });
@@ -32,8 +33,9 @@ gulp.task('dev-styles', function() {
     .src('./src/styles/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([tailwindcss('./config/tailwind-config.js')]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./public/styles'))
+    .pipe(gulp.dest('./public/src/styles'))
     .pipe(browserSync.stream());
 });
 
@@ -61,8 +63,14 @@ gulp.task('prod-styles', function() {
   return gulp
     .src('./src/styles/app.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano({ preset: 'default' })]))
-    .pipe(gulp.dest('./public/styles'));
+    .pipe(
+      postcss([
+        tailwindcss('./config/tailwind-config.js'),
+        autoprefixer(),
+        cssnano({ preset: 'default' })
+      ])
+    )
+    .pipe(gulp.dest('./public/src/styles'));
 });
 
 // Remove unused css
@@ -84,4 +92,4 @@ gulp.task('prod-purge-styles', ['prod-styles'], function() {
 });
 
 // Run production tasks
-gulp.task('prod', ['views', 'prod-purge-styles']);
+gulp.task('prod', ['views', 'prod-styles']);

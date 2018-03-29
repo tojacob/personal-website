@@ -1,0 +1,27 @@
+extends ../includes/_layout
+include ../mixins/_footer
+
+//- About-me == am
+block content
+  section
+    .box.mt-80
+      div.flex.jc-center: img.mt-76(src='src/pictures/img/profile.jpg')
+      .mt-16
+        h1.box__title.mb-0 Jacob Samuel G.
+        h2.box__subtitle Programador web full-stack
+        p.
+          Le apasiona descubrir, planificar y construir proyectos en distintas áreas.  Tiene gran interés por el dibujo, la animación, la ficción y el guionismo; eventualmente incursionará en dichos campos.
+        p.mt-8.
+          Es autodidacta, sus estudios actuales están enfocados en la programación web, la administración de sistemas, el desarrollo de modelos de negocio y la teología reformada.
+        p.mt-8.
+          Aunque algunos dicen lo contrario, Jacob suele ser introvertido, pasar tiempo a solas es fundamental para su existencia. Sin embargo, le gusta mucho estar con amigos.
+        p.mt-8.
+          Disfruta escribir, a veces escribe cosas extrañas e innecesarias, como esta presentación, por ejemplo.
+        p.mt-8.
+          También le encanta comer y probar cosas nuevas, sobre todo postres. Invítale un paste y te amará.
+  .box
+    h2.box-title Enlaces
+    p.
+      Encuentra a Jacob en <a href='#' target="_blank">Facebook</a>. Puedes mirar sus nada asombrosas fotografías en <a href='https://instagram.com/jacobs_views' target="_blank">Instagram</a>. Y leer algunas de las notas personales que comparte en su <a href='#' target="_blank">Blog</a> sobre temas bíblicos.
+
+  +footer('about')

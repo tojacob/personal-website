@@ -1,4 +1,17 @@
-@import 'partials/_variables.scss';
-@import 'partials/reboot';
-@import 'partials/home-header';
-@import 'partials/utilities';
+// Root
+@import 'root/variables';
+@import 'root/reboot';
+
+// Pages
+@import 'pages/home';
+@import 'pages/about-me';
+
+// Componets
+@import 'components/container';
+@import 'components/box';
+@import 'components/footer';
+
+// utilities
+@import 'utilities/spacing';
+
+@import '../../node_modules/tailwindcss/utilities.css';

@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 620px;
+  padding: 16px;
+  margin: 16px auto;
+}
+
+.footer--active {
+  color: $secondary-text-color;
+  pointer-events: none;
+  cursor: default;
+}

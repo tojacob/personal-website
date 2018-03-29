@@ -61,12 +61,12 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.625rem;
 }
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 abbr[title],
@@ -141,14 +141,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: $primary-link-color;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
+  color: darken($color: $primary-link-color, $amount: 25);
   text-decoration: underline;
 }
 
@@ -338,4 +338,3 @@ template {
 [hidden] {
   display: none !important;
 }
-/*# sourceMappingURL=bootstrap-reboot.css.map */

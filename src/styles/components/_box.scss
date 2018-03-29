@@ -1,0 +1,18 @@
+.box {
+  display: block;
+  width: 100%;
+  background-color: white;
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.box__title {
+  font-size: 1.125rem;
+}
+
+.box__subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 18px;
+}

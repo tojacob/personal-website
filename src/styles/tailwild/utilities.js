@@ -44,9 +44,11 @@ View the full documentation at https://tailwindcss.com.
 
 let colors = {
   // Backgrounds
-  'primary-background-color': '#e5e5e5',
+  'light-background-color': '#e5e5e5',
+  'dark-background-color': '#333333',
 
   // Text colors
+  blacky: '#000',
   'primary-text-color': '#333333',
   'secondary-text-color': '#666666',
 
@@ -171,15 +173,8 @@ module.exports = {
   */
 
   textSizes: {
-    xs: '.75rem', // 12px
-    sm: '.875rem', // 14px
-    base: '1rem', // 16px
-    lg: '1.125rem', // 18px
-    xl: '1.25rem', // 20px
-    '2xl': '1.5rem', // 24px
-    '3xl': '1.875rem', // 30px
-    '4xl': '2.25rem', // 36px
-    '5xl': '3rem' // 48px
+    '16': '1rem',
+    '18': '1.125rem'
   },
 
   /*
@@ -197,15 +192,7 @@ module.exports = {
   */
 
   fontWeights: {
-    hairline: 100,
-    thin: 200,
-    light: 300,
-    normal: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800,
-    black: 900
+    //
   },
 
   /*
@@ -308,11 +295,7 @@ module.exports = {
   */
 
   borderWidths: {
-    default: '1px',
-    '0': '0',
-    '2': '2px',
-    '4': '4px',
-    '8': '8px'
+    //
   },
 
   /*
@@ -352,10 +335,7 @@ module.exports = {
 
   borderRadius: {
     none: '0',
-    sm: '.125rem',
-    default: '.25rem',
-    lg: '.5rem',
-    full: '9999px'
+    '50pc': '50%'
   },
 
   /*
@@ -380,33 +360,9 @@ module.exports = {
 
   width: {
     auto: 'auto',
-    px: '1px',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '24': '6rem',
-    '32': '8rem',
-    '48': '12rem',
-    '64': '16rem',
-    '1/2': '50%',
-    '1/3': '33.33333%',
-    '2/3': '66.66667%',
-    '1/4': '25%',
-    '3/4': '75%',
-    '1/5': '20%',
-    '2/5': '40%',
-    '3/5': '60%',
-    '4/5': '80%',
-    '1/6': '16.66667%',
-    '5/6': '83.33333%',
-    full: '100%',
-    screen: '100vw'
+    '50pc': '50%',
+    '100pc': '100%',
+    '100vw': '100vw'
   },
 
   /*
@@ -425,23 +381,7 @@ module.exports = {
   */
 
   height: {
-    auto: 'auto',
-    px: '1px',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '24': '6rem',
-    '32': '8rem',
-    '48': '12rem',
-    '64': '16rem',
-    full: '100%',
-    screen: '100vh'
+    //
   },
 
   /*
@@ -459,8 +399,7 @@ module.exports = {
   */
 
   minWidth: {
-    '0': '0',
-    full: '100%'
+    //
   },
 
   /*
@@ -478,9 +417,7 @@ module.exports = {
   */
 
   minHeight: {
-    '0': '0',
-    full: '100%',
-    screen: '100vh'
+    //
   },
 
   /*
@@ -499,16 +436,8 @@ module.exports = {
   */
 
   maxWidth: {
-    xs: '20rem',
-    sm: '30rem',
-    md: '40rem',
-    lg: '50rem',
-    xl: '60rem',
-    '2xl': '70rem',
-    '3xl': '80rem',
-    '4xl': '90rem',
-    '5xl': '100rem',
-    full: '100%'
+    '294': '294px',
+    '620': '620px'
   },
 
   /*
@@ -546,14 +475,8 @@ module.exports = {
   */
 
   padding: {
-    px: '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem'
+    '16': '16px',
+    '110': '110px'
   },
 
   /*
@@ -572,15 +495,11 @@ module.exports = {
   */
 
   margin: {
-    auto: 'auto',
-    px: '1px',
     '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem'
+    '6': '6px',
+    '8': '8px',
+    '16': '16px',
+    '80': '80px'
   },
 
   /*
@@ -599,14 +518,7 @@ module.exports = {
   */
 
   negativeMargin: {
-    px: '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '6': '1.5rem',
-    '8': '2rem'
+    '92': '92px'
   },
 
   /*
@@ -733,51 +645,51 @@ module.exports = {
   */
 
   modules: {
-    appearance: ['responsive'],
-    backgroundAttachment: ['responsive'],
+    appearance: false,
+    backgroundAttachment: false,
     backgroundColors: ['responsive', 'hover'],
-    backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
-    backgroundSize: ['responsive'],
-    borderColors: ['responsive', 'hover'],
+    backgroundPosition: false,
+    backgroundRepeat: false,
+    backgroundSize: false,
+    borderColors: false,
     borderRadius: ['responsive'],
-    borderStyle: ['responsive'],
-    borderWidths: ['responsive'],
+    borderStyle: false,
+    borderWidths: false,
     cursor: ['responsive'],
     display: ['responsive'],
     flexbox: ['responsive'],
-    float: ['responsive'],
-    fonts: ['responsive'],
+    float: false,
+    fonts: false,
     fontWeights: ['responsive', 'hover'],
     height: ['responsive'],
-    leading: ['responsive'],
-    lists: ['responsive'],
+    leading: false,
+    lists: false,
     margin: ['responsive'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
     minWidth: ['responsive'],
     negativeMargin: ['responsive'],
-    opacity: ['responsive'],
-    overflow: ['responsive'],
+    opacity: false,
+    overflow: false,
     padding: ['responsive'],
     pointerEvents: ['responsive'],
     position: ['responsive'],
-    resize: ['responsive'],
-    shadows: ['responsive'],
-    svgFill: [],
-    svgStroke: [],
+    resize: false,
+    shadows: false,
+    svgFill: false,
+    svgStroke: false,
     textAlign: ['responsive'],
     textColors: ['responsive', 'hover'],
     textSizes: ['responsive'],
     textStyle: ['responsive', 'hover'],
-    tracking: ['responsive'],
+    tracking: false,
     userSelect: ['responsive'],
-    verticalAlign: ['responsive'],
+    verticalAlign: false,
     visibility: ['responsive'],
-    whitespace: ['responsive'],
+    whitespace: false,
     width: ['responsive'],
-    zIndex: ['responsive']
+    zIndex: false
   },
 
   /*
@@ -795,10 +707,10 @@ module.exports = {
   */
 
   plugins: [
-    require('tailwindcss/plugins/container')({
-      // center: true,
-      // padding: '1rem',
-    })
+    // require('tailwindcss/plugins/container')({
+    //   // center: true,
+    //   // padding: '1rem',
+    // })
   ],
 
   /*
@@ -814,6 +726,6 @@ module.exports = {
   options: {
     prefix: '',
     important: false,
-    separator: ':'
+    separator: '-'
   }
 };

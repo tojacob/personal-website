@@ -8,7 +8,7 @@
 }
 
 .footer--active {
-  color: $secondary-text-color;
+  color: config('colors.secondary-text-color');
   pointer-events: none;
   cursor: default;
 }

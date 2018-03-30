@@ -39,9 +39,15 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: $primary-text-color;
+  color: config('colors.primary-text-color');
   text-align: left;
-  background-color: $primary-background-color;
+  background-color: config('colors.light-background-color');
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
 }
 
 [tabindex='-1']:focus {
@@ -61,7 +67,8 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0.625rem;
+  // margin-bottom: 0.625rem;
+  margin-bottom: 1rem;
 }
 
 p {
@@ -141,14 +148,14 @@ sup {
 }
 
 a {
-  color: $primary-link-color;
+  color: config('colors.primary-link-color');
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: darken($color: $primary-link-color, $amount: 25);
+  color: config('colors.secondary-text-color');
   text-decoration: underline;
 }
 

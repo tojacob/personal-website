@@ -33,7 +33,7 @@ gulp.task('dev-styles', function() {
     .src('./src/styles/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([tailwindcss('./config/tailwind-config.js')]))
+    .pipe(postcss([tailwindcss('./src/styles/tailwild/utilities.js')]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/src/styles'))
     .pipe(browserSync.stream());
@@ -45,7 +45,7 @@ gulp.task('dev-server', ['views', 'dev-styles'], function() {
     server: './public'
   });
 
-  gulp.watch('./src/styles/**/*.scss', ['dev-styles']);
+  gulp.watch('./src/styles/**/*.*', ['dev-styles']);
   gulp
     .watch('./src/views/**/*.pug', ['views'])
     .on('change', browserSync.reload);
@@ -65,7 +65,7 @@ gulp.task('prod-styles', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(
       postcss([
-        tailwindcss('./config/tailwind-config.js'),
+        tailwindcss('./src/styles/tailwild/utilities.js'),
         autoprefixer(),
         cssnano({ preset: 'default' })
       ])

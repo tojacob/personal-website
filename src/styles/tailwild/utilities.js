@@ -45,7 +45,7 @@ View the full documentation at https://tailwindcss.com.
 let colors = {
   // Backgrounds
   'light-background-color': '#e5e5e5',
-  'dark-background-color': '#333333',
+  'dark-background-color': '#21232a',
 
   // Text colors
   blacky: '#000',
@@ -295,7 +295,8 @@ module.exports = {
   */
 
   borderWidths: {
-    //
+    default: '1px',
+    '3': '3px'
   },
 
   /*

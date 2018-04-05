@@ -3,11 +3,11 @@ mixin footer(type)
   footer.footer
     case type
       when 'home'
-        a.footer--active(href='/') Inicio
-        a(href='/about-me.html') Sobre mí
+        a.footer__link.footer__link--active(href='/') Inicio
+        a.footer__link(href='/about-me.html') Sobre mí
       when 'about'
-        a(href='/') Inicio
-        a.footer--active(href='/about-me.html') Sobre mí
+        a.footer__link(href='/') Inicio
+        a.footer__link.footer__link--active(href='/about-me.html') Sobre mí
       default
-        a(href='/') Inicio
-        a(href='/about-me.html') Sobre mí
+        a.footer__link(href='/') Inicio
+        a.footer__link(href='/about-me.html') Sobre mí

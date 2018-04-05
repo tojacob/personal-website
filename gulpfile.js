@@ -6,6 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const tailwindcss = require('tailwindcss');
+const del = require('del');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const purgecss = require('gulp-purgecss');
@@ -16,11 +17,11 @@ const purgeHtml = require('purgecss-from-html');
 // ===============
 
 // Compile pug to html
-gulp.task('views', function buildHTML() {
+gulp.task('views', function() {
   return gulp
     .src(['./src/views/pages/**/*.pug'])
     .pipe(pug())
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 // ===============
@@ -35,28 +36,33 @@ gulp.task('dev-styles', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([tailwindcss('./src/styles/tailwild/utilities.js')]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./public/src/styles'))
+    .pipe(gulp.dest('./dist/src/styles'))
     .pipe(browserSync.stream());
 });
 
 // Start local server, live reload and call others dev tasks
-gulp.task('dev-server', ['views', 'dev-styles'], function() {
+gulp.task('dev-server', function() {
   browserSync.init({
-    server: './public'
+    server: './dist'
   });
 
-  gulp.watch('./src/styles/**/*.*', ['dev-styles']);
+  gulp.watch('./src/styles/**/*.*', gulp.parallel('dev-styles'));
   gulp
-    .watch('./src/views/**/*.pug', ['views'])
+    .watch('./src/views/**/*.pug', gulp.parallel('views'))
     .on('change', browserSync.reload);
 });
 
 // Run development tasks
-gulp.task('default', ['dev-server']);
+gulp.task('default', gulp.series('views', 'dev-styles', 'dev-server'));
 
 // ===============
 // PRODUCTION
 // ===============
+
+// Clean dist folder before compile files
+gulp.task('clean-dist', function() {
+  return del(['./dist/**/*.css', './dist/**/*.html']);
+});
 
 // Compile scss to css, add prefixes and minify.
 gulp.task('prod-styles', function() {
@@ -70,16 +76,16 @@ gulp.task('prod-styles', function() {
         cssnano({ preset: 'default' })
       ])
     )
-    .pipe(gulp.dest('./public/src/styles'));
+    .pipe(gulp.dest('./dist/src/styles'));
 });
 
 // Remove unused css
-gulp.task('prod-purge-styles', ['prod-styles'], function() {
+gulp.task('prod-purge-styles', function() {
   return gulp
-    .src('./public/styles/*.css')
+    .src('./dist/styles/*.css')
     .pipe(
       purgecss({
-        content: ['./public/**/*.html'],
+        content: ['./dist/**/*.html'],
         extractors: [
           {
             extractor: purgeHtml,
@@ -88,8 +94,8 @@ gulp.task('prod-purge-styles', ['prod-styles'], function() {
         ]
       })
     )
-    .pipe(gulp.dest('./public/styles'));
+    .pipe(gulp.dest('./dist/styles'));
 });
 
 // Run production tasks
-gulp.task('prod', ['views', 'prod-styles']);
+gulp.task('prod', gulp.series('clean-dist', 'views', 'prod-styles'));

@@ -1,0 +1,43 @@
+.accordion {
+  width: 100%;
+  padding: 18px;
+  font-size: 18px;
+  text-align: left;
+  background-color: config('colors.light-background-color');
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s;
+}
+
+.accordion--active,
+.accordion:hover {
+  color: #fff;
+  background-color: config('colors.dark-background-color');
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion:hover:after {
+  color: #fff;
+}
+
+.accordion--active:after {
+  color: #fff;
+  content: '\2212';
+}
+
+.accordion__panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}

@@ -73,7 +73,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 8px;
 }
 
 abbr[title],
@@ -152,7 +152,7 @@ a {
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 a:hover {

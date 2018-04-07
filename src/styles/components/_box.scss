@@ -9,12 +9,35 @@
   border-radius: 5px;
 }
 
+.box--with-feature-image {
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.box__featured-image {
+  width: 100%;
+  max-width: 620px;
+  margin-top: 16px;
+  border-radius: 5px 5px 0 0;
+}
+
 .box__title {
   font-size: 1.125rem;
 }
 
 .box__subtitle {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   margin-bottom: 16px;
+}
+
+.box__common-image {
+  width: 100%;
+  max-width: 100%;
+}
+
+.box__common-image {
+  width: 100%;
+  margin: 8px 0 16px 0;
+  border-radius: 5px;
 }

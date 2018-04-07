@@ -477,6 +477,7 @@ module.exports = {
 
   padding: {
     '16': '16px',
+    '55': '55px',
     '110': '110px'
   },
 
@@ -500,6 +501,7 @@ module.exports = {
     '6': '6px',
     '8': '8px',
     '16': '16px',
+    '32': '32px',
     '80': '80px'
   },
 
@@ -584,9 +586,6 @@ module.exports = {
 
   opacity: {
     '0': '0',
-    '25': '.25',
-    '50': '.5',
-    '75': '.75',
     '100': '1'
   },
 
@@ -671,7 +670,7 @@ module.exports = {
     minHeight: ['responsive'],
     minWidth: ['responsive'],
     negativeMargin: ['responsive'],
-    opacity: false,
+    opacity: ['responsive'],
     overflow: false,
     padding: ['responsive'],
     pointerEvents: ['responsive'],

@@ -1,7 +1,6 @@
-extends ../includes/_layout
+extends ../includes/_layout-main
 include ../mixins/_footer
 
-//- Home == hm
 block content
 
   //- Header
@@ -11,10 +10,10 @@ block content
         <span class='invisible md-visible'>"</span>La <b>ayuda</b> que necesitas para hacer realidad tu <b>proyecto</b> digital<span class='invisible md-visible'>"</span>
     .header__down.px-16
       .down__link
-        img.down__icon(src='src/pictures/svg/arrow_down_24.svg')
+        img.down__icon(src='assets/pictures/svg/arrow_down_24.svg')
 
   //- Content
-  section.container: .w-100pc.md-flex.md-justify-between
+  main.container: .w-100pc.md-flex.md-justify-between
 
     .w-100pc.md-max-w-294
       .box
@@ -22,28 +21,27 @@ block content
         h2.box__subtitle Programador web full-stack
         p.
           Estoy especializado en el desarrollo de productos mínimos viables basados en la metodología Lean.
-        p.mt-8.
+        p.
           Puedo ayudarte en la creación de tu nuevo proyecto digital y guiarte paso a paso durante todas sus etapas, hasta que tu servicio se convierta en una opción rentable y relevante en el mercado.
 
     .w-100pc.md-max-w-294
       .box
         h2.box__title Hablemos sobre tu proyecto
         .flex.items-center.mt-16
-          img.mr-16(src='src/pictures/svg/email_16.svg')
-          p jsgcontacto@gmail.com
+          img.mr-16(src='assets/pictures/svg/email_16.svg')
+          p.m-0 jsgcontacto@gmail.com
         .flex.items-center.mt-8
-          img.mr-16(src='src/pictures/svg/phone_16.svg')
-          p 938 146 02 85
+          img.mr-16(src='assets/pictures/svg/phone_16.svg')
+          p.m-0 938 146 02 85
 
       .box
         h2.box__title Escribí algunos artículos que podrían interesarte
         .flex.flex-col.items-start
-          a.block(href='https://bit.ly/2GQFeQO') Sincera introducción a las metodologías agiles.
-          a.block.mt-8(href='https://bit.ly/2Jaf6yF') Que es Lean Startup y porque deberías utilizarlo.
-          a.block.mt-8(href='https://bit.ly/2q1z86w') Los 5 beneficios del MVP.
+          a.block(href='/articles/intro-agile.html') Sincera introducción a las metodologías agiles.
+          a.block.mt-8(href='/articles/lean-startup.html') Que es Lean Startup y porque deberías utilizarlo.
+          a.block.mt-8(href='/articles/mvp-benefits.html') Los 5 beneficios del MVP.
 
-  .container
-    +footer('home')
+  +footer('home')
 
 
 

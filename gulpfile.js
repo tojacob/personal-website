@@ -16,6 +16,16 @@ const purgeHtml = require('purgecss-from-html');
 // COMMON
 // ===============
 
+// Clean dist folder before compile files
+gulp.task('clean-dist', function() {
+  return del(['./dist/']);
+});
+
+// Move content from 'src/assets' to 'dist/assets' folder
+gulp.task('assets-to-dist', function() {
+  return gulp.src(['./src/assets/**/*.*']).pipe(gulp.dest('./dist/assets'));
+});
+
 // Compile pug to html
 gulp.task('views', function() {
   return gulp
@@ -36,7 +46,7 @@ gulp.task('dev-styles', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([tailwindcss('./src/styles/tailwild/utilities.js')]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/src/styles'))
+    .pipe(gulp.dest('./dist/assets/styles'))
     .pipe(browserSync.stream());
 });
 
@@ -53,16 +63,20 @@ gulp.task('dev-server', function() {
 });
 
 // Run development tasks
-gulp.task('default', gulp.series('views', 'dev-styles', 'dev-server'));
+gulp.task(
+  'default',
+  gulp.series(
+    'clean-dist',
+    'assets-to-dist',
+    'views',
+    'dev-styles',
+    'dev-server'
+  )
+);
 
 // ===============
 // PRODUCTION
 // ===============
-
-// Clean dist folder before compile files
-gulp.task('clean-dist', function() {
-  return del(['./dist/**/*.css', './dist/**/*.html']);
-});
 
 // Compile scss to css, add prefixes and minify.
 gulp.task('prod-styles', function() {
@@ -76,7 +90,7 @@ gulp.task('prod-styles', function() {
         cssnano({ preset: 'default' })
       ])
     )
-    .pipe(gulp.dest('./dist/src/styles'));
+    .pipe(gulp.dest('./dist/assets/styles'));
 });
 
 // Remove unused css
@@ -94,8 +108,11 @@ gulp.task('prod-purge-styles', function() {
         ]
       })
     )
-    .pipe(gulp.dest('./dist/styles'));
+    .pipe(gulp.dest('./dist/assets/styles'));
 });
 
 // Run production tasks
-gulp.task('prod', gulp.series('clean-dist', 'views', 'prod-styles'));
+gulp.task(
+  'prod',
+  gulp.series('clean-dist', 'assets-to-dist', 'views', 'prod-styles')
+);

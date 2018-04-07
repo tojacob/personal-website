@@ -1,29 +1,33 @@
-extends ../includes/_layout
+extends ../includes/_layout-main
+include ../mixins/_bar-back
 include ../mixins/_footer
 
-//- About-me == am
 block content
-  section.container
-    .box.max-w-620.mt-80.md-px-110
+
+  nav.container
+    +bar-back()
+
+  main.container
+    .box.mt-80.md-px-110
       div.flex.justify-center
-        img.-mt-92.rounded-50pc(src='src/pictures/img/profile_120.jpg')
+        img.-mt-92.rounded-50pc(src='assets/pictures/img/profile_120.jpg')
       .mt-16
         h1.box__title.text-center.mb-0 Jacob Samuel G.
         h2.box__subtitle.text-center Programador web full-stack
         p.
           <span class='text-blacky'>J</span>acob es autodidacta, le apasiona descubrir, planificar y emprender proyectos.
-        p.mt-8.
-          <span class='text-blacky'>A</span>ctualmente está enfocado en la programación web, el desarrollo de modelos de negocio y la teología reformada.
-        p.mt-8.
+        p.
+          <span class='text-blacky'>A</span>ctualmente está enfocado en la programación web, el desarrollo de modelos de negocio y la teología.
+        p.
           <span class='text-blacky'>C</span>onsidera aprender dibujo, animación y guionismo; estos campos le atraen muchísimo, eventualmente incursionará en ellos.
-        p.mt-8.
+        p.
           <span class='text-blacky'>O</span>casionalmente disfruta escribir, a veces escribe cosas extrañas e innecesarias, como esta presentación, por ejemplo.
-        p.mt-8.
+        p.
           <span class='text-blacky'>B</span>ien sabido es que le gusta comer y probar cosas nuevas, sobre todo postres; invítale un pastel y te amará.
 
-    .box.max-w-620.md-px-110
+    .box.md-px-110
       h2.box__title.text-center Enlaces
       p.
-        Encuentra a Jacob en <a href='https://www.facebook.com/jsgnotas' target="_blank">Facebook</a>. Puedes mirar sus nada asombrosas fotografías en <a href='https://instagram.com/jacobs_views' target="_blank">Instagram</a>. Y leer algunas de las notas bíblicas que comparte en su <a href='https://notes.tojacob.com'>Blog personal</a>.
+        Quizá encuentres a Jacob en <a href='https://www.facebook.com/jsgnotas' target="_blank">Facebook</a>. Puedes mirar sus nada asombrosas fotografías en <a href='https://instagram.com/jacobs_views' target="_blank">Instagram</a>. Y leer algunas de las notas bíblicas que comparte en su <a href='https://notes.tojacob.com'>Blog personal</a>.
 
-    +footer('about')
+  +footer('about')

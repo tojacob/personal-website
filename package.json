@@ -4,12 +4,9 @@
   "description": "Personal site",
   "main": "index.js",
   "private": true,
-  "author": "https://github.com/jsgcode",
+  "author": "https://github.com/tojacob",
   "license": "ISC",
-  "scripts": {
-    "start": "nodemon",
-    "start-dev": "nodemon --ignore ./node_modules"
-  },
+  "scripts": {},
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^8.2.0",
@@ -26,8 +23,5 @@
     "purgecss-from-html": "^1.0.0",
     "tailwindcss": "^0.5.1"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  "browserslist": ["> 1%", "last 2 versions"]
 }

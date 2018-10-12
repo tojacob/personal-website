@@ -64,7 +64,7 @@ gulp.task('dev-server', function() {
 
 // Run development tasks
 gulp.task(
-  'default',
+  'dev',
   gulp.series(
     'clean-dist',
     'assets-to-dist',

@@ -6,7 +6,10 @@
   "private": true,
   "author": "https://github.com/tojacob",
   "license": "ISC",
-  "scripts": {},
+  "scripts": {
+    "dev": "gulp dev",
+    "prod": "gulp prod"
+  },
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^8.2.0",

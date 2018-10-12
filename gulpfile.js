@@ -18,7 +18,7 @@ const purgeHtml = require('purgecss-from-html');
 
 // Clean dist folder before compile files
 gulp.task('clean-dist', function() {
-  return del(['./dist/']);
+  return del(['./dist/*.html', './dist/articles', './dist/assets']);
 });
 
 // Move content from 'src/assets' to 'dist/assets' folder

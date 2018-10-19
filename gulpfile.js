@@ -18,12 +18,18 @@ const purgeHtml = require('purgecss-from-html');
 
 // Clean dist folder before compile files
 gulp.task('clean-dist', function() {
-  return del(['./dist/*.html', './dist/articles', './dist/assets']);
+  return del([
+    './tojacob.github.io/*.html',
+    './tojacob.github.io/articles',
+    './tojacob.github.io/assets'
+  ]);
 });
 
-// Move content from 'src/assets' to 'dist/assets' folder
+// Move content from 'src/assets' to 'tojacob.github.io/assets' folder
 gulp.task('assets-to-dist', function() {
-  return gulp.src(['./src/assets/**/*.*']).pipe(gulp.dest('./dist/assets'));
+  return gulp
+    .src(['./src/assets/**/*.*'])
+    .pipe(gulp.dest('./tojacob.github.io/assets'));
 });
 
 // Compile pug to html
@@ -31,7 +37,7 @@ gulp.task('views', function() {
   return gulp
     .src(['./src/views/pages/**/*.pug'])
     .pipe(pug())
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./tojacob.github.io/'));
 });
 
 // ===============
@@ -46,14 +52,14 @@ gulp.task('dev-styles', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([tailwindcss('./src/styles/tailwild/utilities.js')]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/assets/styles'))
+    .pipe(gulp.dest('./tojacob.github.io/assets/styles'))
     .pipe(browserSync.stream());
 });
 
 // Start local server, live reload and call others dev tasks
 gulp.task('dev-server', function() {
   browserSync.init({
-    server: './dist'
+    server: './tojacob.github.io'
   });
 
   gulp.watch('./src/styles/**/*.*', gulp.parallel('dev-styles'));
@@ -90,16 +96,16 @@ gulp.task('prod-styles', function() {
         cssnano({ preset: 'default' })
       ])
     )
-    .pipe(gulp.dest('./dist/assets/styles'));
+    .pipe(gulp.dest('./tojacob.github.io/assets/styles'));
 });
 
 // Remove unused css
 gulp.task('prod-purge-styles', function() {
   return gulp
-    .src('./dist/styles/*.css')
+    .src('./tojacob.github.io/styles/*.css')
     .pipe(
       purgecss({
-        content: ['./dist/**/*.html'],
+        content: ['./tojacob.github.io/**/*.html'],
         extractors: [
           {
             extractor: purgeHtml,
@@ -108,7 +114,7 @@ gulp.task('prod-purge-styles', function() {
         ]
       })
     )
-    .pipe(gulp.dest('./dist/assets/styles'));
+    .pipe(gulp.dest('./tojacob.github.io/assets/styles'));
 });
 
 // Run production tasks

@@ -16,28 +16,33 @@ const purgeHtml = require('purgecss-from-html');
 // COMMON
 // ===============
 
+// Folders
+const DIST = './docs',
+  DIST_STYLES = `${DIST}/assets/styles`,
+  DIST_ASSETS = `${DIST}/assets/`,
+  TO_DELETE = [`${DIST}/*.html`, `${DIST}/articles`, `${DIST}/assets`],
+  SRC_ASSETS = ['./src/assets/**/*.*'],
+  SRC_VIEWS = ['./src/views/pages/**/*.pug'],
+  SRC_STYLES = './src/styles/**/*.*',
+  MAIN_STYLE = './src/styles/app.scss',
+  TW_STYLE = './src/styles/tailwild/utilities.js';
+
 // Clean dist folder before compile files
 gulp.task('clean-dist', function() {
-  return del([
-    './tojacob.github.io/*.html',
-    './tojacob.github.io/articles',
-    './tojacob.github.io/assets'
-  ]);
+  return del(TO_DELETE);
 });
 
-// Move content from 'src/assets' to 'tojacob.github.io/assets' folder
+// Move content from 'src/assets' to 'dist/assets' folder
 gulp.task('assets-to-dist', function() {
-  return gulp
-    .src(['./src/assets/**/*.*'])
-    .pipe(gulp.dest('./tojacob.github.io/assets'));
+  return gulp.src(SRC_ASSETS).pipe(gulp.dest(DIST_ASSETS));
 });
 
 // Compile pug to html
 gulp.task('views', function() {
   return gulp
-    .src(['./src/views/pages/**/*.pug'])
+    .src(SRC_VIEWS)
     .pipe(pug())
-    .pipe(gulp.dest('./tojacob.github.io/'));
+    .pipe(gulp.dest(DIST));
 });
 
 // ===============
@@ -47,24 +52,24 @@ gulp.task('views', function() {
 // Compile scss to css and add source map
 gulp.task('dev-styles', function() {
   return gulp
-    .src('./src/styles/app.scss')
+    .src(MAIN_STYLE)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([tailwindcss('./src/styles/tailwild/utilities.js')]))
+    .pipe(postcss([tailwindcss(TW_STYLE)]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./tojacob.github.io/assets/styles'))
+    .pipe(gulp.dest(DIST_STYLES))
     .pipe(browserSync.stream());
 });
 
 // Start local server, live reload and call others dev tasks
 gulp.task('dev-server', function() {
   browserSync.init({
-    server: './tojacob.github.io'
+    server: DIST
   });
 
-  gulp.watch('./src/styles/**/*.*', gulp.parallel('dev-styles'));
+  gulp.watch(SRC_STYLES, gulp.parallel('dev-styles'));
   gulp
-    .watch('./src/views/**/*.pug', gulp.parallel('views'))
+    .watch(SRC_VIEWS, gulp.parallel('views'))
     .on('change', browserSync.reload);
 });
 
@@ -87,25 +92,25 @@ gulp.task(
 // Compile scss to css, add prefixes and minify.
 gulp.task('prod-styles', function() {
   return gulp
-    .src('./src/styles/app.scss')
+    .src(MAIN_STYLE)
     .pipe(sass().on('error', sass.logError))
     .pipe(
       postcss([
-        tailwindcss('./src/styles/tailwild/utilities.js'),
+        tailwindcss(TW_STYLE),
         autoprefixer(),
         cssnano({ preset: 'default' })
       ])
     )
-    .pipe(gulp.dest('./tojacob.github.io/assets/styles'));
+    .pipe(gulp.dest(DIST_STYLES));
 });
 
 // Remove unused css
 gulp.task('prod-purge-styles', function() {
   return gulp
-    .src('./tojacob.github.io/styles/*.css')
+    .src(`${DIST_STYLES}/*.css`)
     .pipe(
       purgecss({
-        content: ['./tojacob.github.io/**/*.html'],
+        content: [`${DIST}/**/*.html`],
         extractors: [
           {
             extractor: purgeHtml,
@@ -114,7 +119,7 @@ gulp.task('prod-purge-styles', function() {
         ]
       })
     )
-    .pipe(gulp.dest('./tojacob.github.io/assets/styles'));
+    .pipe(gulp.dest(DIST_STYLES));
 });
 
 // Run production tasks

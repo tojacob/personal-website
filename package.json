@@ -7,8 +7,8 @@
   "author": "https://github.com/tojacob",
   "license": "ISC",
   "scripts": {
-    "dev": "gulp dev",
-    "prod": "gulp prod"
+    "dev": "npx gulp devTasks",
+    "prod": "npx gulp prodTasks"
   },
   "dependencies": {},
   "devDependencies": {

@@ -1,16 +1,19 @@
 // Root
-@import 'root/reboot';
+@import './variables.scss';
+@import './reboot';
+
+//Utilities
+@import './utilities/container';
+@import './utilities/box';
+@import './utilities/atomics';
 
 // Componets
-@import 'components/about';
-@import 'components/accordion';
-@import 'components/box';
-@import 'components/bar';
-@import 'components/container';
-@import 'components/footer';
-@import 'components/header';
+@import './components/bar';
+@import './components/footer';
 
-@import 'components/404';
+// Pages
+@import './pages/home';
+@import './pages/about-me';
 
-// utilities
-@tailwind utilities;
+@import './pages/process';
+@import './pages/404';

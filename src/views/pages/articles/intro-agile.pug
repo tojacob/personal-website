@@ -1,13 +1,13 @@
-extends ../../includes/_layout-article
-include ../../mixins/_bar-back
-include ../../mixins/_footer
+extends ../../includes/layout-article
+include ../../mixins/bar-back
+include ../../mixins/footer
 
 block content
   nav.container: +bar-back()
 
   article.container
     img.box__featured-image(src="../assets/pictures/img/articles/intro-agile.jpg" alt="Featured image")
-    .box.box--with-feature-image.md-px-55
+    .box.box--with-feature-image.box--with-paddingx-55
       h1.box__title.text-center.mb-0 Sincera introducción a las metodologías Ágiles
       h2.box__subtitle.text-center.mb-32 Por Jacob Samuel G.
       p.

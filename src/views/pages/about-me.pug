@@ -1,6 +1,6 @@
-extends ../includes/_layout-main
-include ../mixins/_bar-back
-include ../mixins/_footer
+extends ../includes/layout-main
+include ../mixins/bar-back
+include ../mixins/footer
 
 block content
 
@@ -8,12 +8,11 @@ block content
     +bar-back()
 
   main.container
-    .box.mt-80.md-px-110
-      div.flex.justify-center
-        img.-mt-92.rounded-50pc(src='assets/pictures/img/profile_120.jpg')
+    .box.about__main
+      div.main__picture
+        img(src='assets/pictures/img/profile_120.jpg')
       .mt-16
         h1.box__title.text-center Jacob Samuel G.
-        //- h2.box__subtitle.text-center Programador web full-stack
         p.
           <span class='text-blacky'>J</span>acob es autodidacta, le gusta descubrir y planificar proyectos, algunas veces salen a la luz, la mayoría de las veces permanecen en su libreta.
         p.
@@ -21,11 +20,11 @@ block content
         p.
           <span class='text-blacky'>C</span>onsidera que el tiempo es importante, por ello ha decidido utilizar sabiamente cada día, cada oportunidad.
         p.
-          <a class='text-blacky secret-link' href='https://enmidimension.tumblr.com/' target='_blank'>O</a>casionalmente disfruta escribir. A veces escribe cosas extrañas, como este párrafo, por ejemplo.
+          <a class='text-blacky about__secret-link' href='https://enmidimension.tumblr.com/' target='_blank'>O</a>casionalmente disfruta escribir. A veces escribe cosas extrañas, como este párrafo, por ejemplo.
         p.
           <span class='text-blacky'>B</span>ien sabido es que le encanta comer y probar cosas nuevas, sobre todo postres; invítale un pastel y te amará.
 
-    .box.md-px-110
+    .box.about__links
       h2.box__title.text-center Enlaces
       p.
         Quizá lo encuentres en <a href='https://www.facebook.com/jsgnotas' target="_blank">Facebook</a>. Puedes mirar sus nada asombrosas fotografías en <a href='https://instagram.com/jacobs_views' target="_blank">Instagram</a>, y leer algunas de las notas bíblicas que comparte en su <a style="white-space: nowrap;" href='https://jsgnotes.tumblr.com'>Blog personal</a>.

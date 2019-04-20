@@ -5,7 +5,6 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
-const tailwindcss = require('tailwindcss');
 const del = require('del');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
@@ -29,7 +28,8 @@ const files = {
     dist: `${distFolder}/assets/`
   },
   views: {
-    src: [`${srcFolder}/views/pages/**/*.pug`],
+    src: `${srcFolder}/views/pages/**/*.pug`,
+    watchs: `${srcFolder}/views/**/*.pug`,
     dist: distFolder
   }
 }
@@ -69,7 +69,6 @@ function devStyles() {
   return src(files.styles.main)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([tailwindcss(files.styles.tw)]))
     .pipe(sourcemaps.write())
     .pipe(dest(files.styles.dist))
     .pipe(browserSync.stream());
@@ -82,7 +81,7 @@ function devServer(cb) {
   });
 
   watch(files.styles.src, parallel(devStyles));
-  watch(files.views.src, parallel(compileViews))
+  watch(files.views.watchs, parallel(compileViews))
     .on('change', browserSync.reload);
 
   return cb;
@@ -105,13 +104,10 @@ function devTasks() {
 function prodStyles() {
   return src(files.styles.main)
     .pipe(sass().on('error', sass.logError))
-    .pipe(
-      postcss([
-        tailwindcss(files.styles.tw),
-        autoprefixer(),
-        cssnano({ preset: 'default' })
-      ])
-    )
+    .pipe(postcss([
+      autoprefixer(),
+      cssnano({ preset: 'default' })
+    ]))
     .pipe(dest(files.styles.dist));
 }
 

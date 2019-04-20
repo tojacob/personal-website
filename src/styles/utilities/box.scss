@@ -14,6 +14,13 @@
   border-radius: 0 0 5px 5px;
 }
 
+.box--with-paddingx-55{
+  @media (min-width: 768px) {
+    padding-left: 55px !important;
+    padding-right: 55px !important;
+  }
+}
+
 .box__featured-image {
   width: 100%;
   max-width: 620px;

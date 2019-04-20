@@ -39,9 +39,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: config('colors.primary-text-color');
+  color: $primary-text-color;
   text-align: left;
-  background-color: config('colors.light-background-color');
+  background-color: $light-background-color;
 }
 
 html,
@@ -148,7 +148,7 @@ sup {
 }
 
 a {
-  color: config('colors.primary-link-color');
+  color: $primary-link-color;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -156,7 +156,7 @@ a {
 }
 
 a:hover {
-  color: config('colors.secondary-text-color');
+  color: $secondary-text-color;
   text-decoration: underline;
 }
 

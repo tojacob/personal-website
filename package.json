@@ -19,15 +19,7 @@
     "gulp": "^4.0.0",
     "gulp-postcss": "^7.0.1",
     "gulp-pug": "^3.3.0",
-    "gulp-purgecss": "^0.20.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "nodemon": "^1.17.2",
-    "purgecss-from-html": "^1.0.0",
-    "tailwindcss": "^0.5.1"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "gulp-sourcemaps": "^2.6.4"
+  }
 }

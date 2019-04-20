@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: config('colors.dark-background-color');
+  background-color: $dark-background-color;
   padding: 32px 16px;
   margin: 16px auto;
   border-radius: 5px;
@@ -13,7 +13,7 @@
 }
 
 .footer__link--active {
-  color: config('colors.secondary-text-color');
+  color: $secondary-text-color;
   pointer-events: none;
   cursor: default;
 }

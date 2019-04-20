@@ -1,0 +1,31 @@
+.about__main{
+  margin-top: 80px;
+
+  @media (min-width: 768px) {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+
+  .main__picture{
+    display: flex;
+    justify-content: center;
+
+    img{
+      margin-top: -92px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.about__secret-link:hover {
+  color: white;
+  background-color: red;
+  transition: none;
+}
+
+.about__links{
+  @media (min-width: 768px) {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}

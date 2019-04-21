@@ -83,6 +83,7 @@ function devServer(cb) {
   watch(files.styles.src, parallel(devStyles));
   watch(files.views.watchs, parallel(compileViews))
     .on('change', browserSync.reload);
+  watch(files.assets.src, parallel(assetsToDist));
 
   return cb;
 }

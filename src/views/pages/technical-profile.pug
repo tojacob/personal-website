@@ -1,0 +1,128 @@
+extends ../includes/layout-main
+include ../mixins/bar-back
+include ../mixins/footer
+
+mixin icon(name, size)
+    -const iconSize = size || '24';
+
+    case name
+      when 'flag'
+        svg(
+          xmlns="http://www.w3.org/2000/svg" width=`${iconSize}` height=`${iconSize}` viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-flag"
+        )
+          path(d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z")
+          line(x1="4" y1="22" x2="4" y2="15")
+      when 'up'
+        svg(
+          xmlns="http://www.w3.org/2000/svg" width=`${iconSize}` height=`${iconSize}` viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"
+        )
+          polyline(points="23 6 13.5 15.5 8.5 10.5 1 18")
+          polyline(points="17 6 23 6 23 12")
+
+mixin skill(skill, percent, mode)
+  .skill__container.mb-8
+    .skill__graphic-percent(style=`width: ${percent}`)
+    .skill__data
+      .data__skill-name
+        span #{skill} #{percent}
+        +icon(mode, '12')
+
+
+block content
+
+  nav.container
+    +bar-back()
+
+  main.container
+    .box.technical__main
+      h1.box__title.text-center Jacob Samuel G.
+      //- h2.box__subtitle.text-center Full-Stack Javascript Web Developer
+
+      p.text-center.mb-0 Como desarrollador web full-stack, siempre procuro hacer especial énfasis en cumplir con los siguientes objetivos para cada proyecto.
+
+      .main__goals
+        .main__goal
+          img.goal__icon(src='assets/pictures/svg/performance.svg')
+          .goal__content
+            h3 Rendimiento
+            p Distribuir aplicaciones eficientes que mantengan un apropiado equilibrio entre la velocidad para el usuario final y el costo de inversión para el negocio.
+        .main__goal
+          img.goal__icon(src='assets/pictures/svg/security.svg')
+          .goal__content
+            h3 Seguridad
+            p Construir sistemas siguiendo las mejores prácticas que permitan el correcto funcionamiento del software incluso bajo situaciones fuera de su uso común.
+        .main__goal
+          img.goal__icon(src='assets/pictures/svg/availability.svg')
+          .goal__content
+            h3 Disponibilidad
+            p Implementar infraestructura capaz de persistir durante los altos picos de tráfico que suelen suceder cuando la aplicación comienza a crecer.
+        .main__goal
+          img.goal__icon(src='assets/pictures/svg/usability.svg')
+          .goal__content
+            h3 Usabilidad
+            p Diseñar experiencias positivas para los usuarios que interactúan con la aplicación.  Ofreciendo siempre diseños sensibles capaces de adaptarse a los diversos dispositivos del mercado actual.
+        .main__goal
+          img.goal__icon(src='assets/pictures/svg/maintenance.svg')
+          .goal__content
+            h3 Mantenimiento
+            p Generar código limpio y ordenado para que los equipos de trabajo colaboren ágilmente durante las diversas etapas del desarrollo.
+        .main__goal
+          img.goal__icon(src='assets/pictures/svg/vanguard.svg')
+          .goal__content
+            h3 Vanguardia
+            p Mantener los sistemas actualizados, buscando utilizar las tecnologías relevantes, siempre y cuando beneficien al proyecto desde la perspectiva técnica y de negocios.
+
+  section.container: .box.technical__skills
+    h2.box__title.text-center Habilidades técnicas
+
+    .skill__modes
+      .skill__mode
+        +icon('flag', '15')
+        small En ruta de aprendizaje
+      .skill__mode
+        +icon('up', '15')
+        small En continuo aprendizaje
+
+    h3.skill__title Lenguajes
+    +skill('javascript', '90%', 'up')
+    +skill('typescript', '60%', 'up')
+    +skill('html', '90%', 'up')
+    +skill('css3', '80%', 'up')
+    +skill('sass', '70%', 'up')
+    +skill('bash', '10%', 'flag')
+
+    h3.skill__title Entornos
+    +skill('linux produccion', '50%', 'up')
+    +skill('windows desarrollo', '90%', 'up')
+    +skill('docker', '10%', 'flag')
+    +skill('nodejs', '60%', 'up')
+
+    h3.skill__title Frameworks en el cliente
+    +skill('jquery', '80%')
+    +skill('reactjs', '50%')
+    +skill('nextjs', '60%')
+    +skill('angular', '80%', 'up')
+    +skill('material angular', '60%', 'up')
+    +skill('bootstrap', '90%')
+
+    h3.skill__title Frameworks en el servidor
+    +skill('express', '90%', 'up')
+    +skill('polka', '80%')
+    +skill('fastify', '50%')
+
+    h3.skill__title Bases de datos
+    +skill('mongodb', '60%', 'up')
+
+    h3.skill__title Herramientas
+    +skill('git', '60%', 'up')
+    +skill('gulp', '90%')
+    +skill('webpack', '40%')
+    +skill('nodemon', '90%')
+
+    h3.skill__title Servicios
+    +skill('github', '60%', 'up')
+    +skill('firebase', '70%', 'up')
+    +skill('google cloud', '40%', 'up')
+    +skill('zeit now', '60%')
+
+  +footer('technical')

@@ -14,7 +14,7 @@ const autoprefixer = require('autoprefixer');
 // ===============
 
 // Constantes
-const distFolder = './docs';
+const distFolder = './dist';
 const srcFolder = './src';
 const files = {
   styles: {

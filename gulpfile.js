@@ -21,8 +21,7 @@ const files = {
   styles: {
     main: `${srcFolder}/styles/app.scss`,
     src: `${srcFolder}/styles/**/*.*`,
-    dist: `${distFolder}/assets/styles`,
-    tw: `${srcFolder}/styles/tailwild/utilities.js`
+    dist: `${distFolder}/assets/styles`
   },
   assets: {
     src: `${srcFolder}/assets/**/*.*`,

@@ -1,49 +1,25 @@
 extends ../includes/layout-main
-include ../mixins/footer
 
 block content
 
-  //- Header
-  header.home__header
-    .header__phrase
-      p La <b>ayuda</b> que necesitas para hacer realidad tu <b>proyecto</b> digital
-    .header__down-arrow
-      .down__link
-        img.down__icon(src='assets/pictures/svg/arrow_down_24.svg')
-
-  //- Content
-  main.container: .home__main
-
-    .main__section
-      .box
-        h1.box__title ¿En que puedo ayudarte?
+  main.container
+    .box.home__main
+      div.main__picture
+        img(src='assets/pictures/img/profile_120.jpg')
+      .mt-16
+        h1.box__title.text-center Jacob Samuel G.
         p.
-          ¡Hola! Mi nombre es Jacob. Estoy especializadome en el desarrollo de productos mínimos viables basados en la metodología Lean.
+          Jacob es autodidacta, le gusta descubrir y planificar proyectos, algunas veces salen a la luz, la mayoría de las veces permanecen en su libreta.
         p.
-          Podemos trabajar juntos en la creación de tu proyecto digital, te guiaré paso a paso durante todas sus etapas, hasta que tu servicio se convierta en una opción rentable y relevante en el mercado.
+          Actualmente está enfocado en la programación web, la ilustración digital y la teología bíblica.
+        p.
+          Considera que el tiempo es importante, por ello ha decidido utilizar sabiamente cada día, cada oportunidad.
+        p.
+          Ocasionalmente disfruta escribir. A veces escribe cosas extrañas, como este párrafo, por ejemplo.
+        p.
+          Bien sabido es que le encanta comer y probar cosas nuevas, sobre todo postres; invítale un frappé y te amará.
 
-        a(href="/technical-profile.html") Ver perfil técnico.
-
-    .main__sections
-      .box
-        h2.box__title Hablemos sobre tu proyecto
-        .s2__data.mt-16
-          img.mr-16(src='assets/pictures/svg/email_16.svg')
-          p.m-0 jsgcontacto[arroba]gmail.com
-        .s2__data.mt-8
-          img.mr-16(src='assets/pictures/svg/phone_16.svg')
-          p.m-0 938 146 02 85
-        .mt-16
-          small(style="display: block; line-height: 1.5;").
-            El [arroba] debe sustituirse por @. Es un pequeño truco para evitar el spam.
-      .box
-        h2.box__title Escribí algunos artículos que podrían interesarte
-        .s3__data
-          a(href='/articles/intro-agile.html') Sincera introducción a las metodologías agiles.
-          a.mt-8(href='/articles/lean-startup.html') Que es Lean Startup y porque deberías utilizarlo.
-          a.mt-8(href='/articles/mvp-benefits.html') Los 5 beneficios del MVP.
-
-  +footer('home')
-
-
-
+    .box.home__links.mb-32
+      h2.box__title.text-center Enlaces
+      p.
+        Quizá lo encuentres en <a href='https://www.facebook.com/jsgnotas' target="_blank">Facebook</a>. Puedes mirar sus nada asombrosas fotografías en <a href='https://instagram.com/jacobs_views' target="_blank">Instagram</a> y leer algunas de las notas personales que comparte en <a style="white-space: nowrap;" href='https://enmidimension.tumblr.com' target="_blank">Tumblr</a>.

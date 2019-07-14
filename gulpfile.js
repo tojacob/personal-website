@@ -2,6 +2,7 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
@@ -13,7 +14,7 @@ const autoprefixer = require('autoprefixer');
 // COMMON
 // ===============
 
-// Constantes
+// Constants
 const distFolder = './dist';
 const srcFolder = './src';
 const files = {

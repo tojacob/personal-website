@@ -1,0 +1,12 @@
+mixin footer(type)
+  footer.container: .footer
+    case type
+      when 'home'
+        a.footer__link.footer__link--active(href='/') Inicio
+        a.footer__link(href='/technical-profile.html') Perfil técnico
+      when 'technical'
+        a.footer__link(href='/') Inicio
+        a.footer__link.footer__link--active(href='/technical-profile.html') Perfil técnico
+      default
+        a.footer__link(href='/') Inicio
+        a.footer__link(href='/technical-profile.html') Perfil técnico

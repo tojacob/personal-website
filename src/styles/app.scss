@@ -8,7 +8,10 @@
 @import './utilities/atomics';
 
 // Componets
+@import './components/bar';
+@import './components/footer';
 
 // Pages
 @import './pages/home';
+@import './pages/technical-profile';
 @import './pages/404';

@@ -1,0 +1,14 @@
+<svg width="16" height="13" viewBox="0 0 16 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>email_16</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(141 -649)">
+<g id="email_16">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-141 649)" fill="#666666"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 14.4 0L 1.6 0C 0.72 0 0.00799999 0.72 0.00799999 1.6L 0 11.2C 0 12.08 0.72 12.8 1.6 12.8L 14.4 12.8C 15.28 12.8 16 12.08 16 11.2L 16 1.6C 16 0.72 15.28 0 14.4 0ZM 14.4 3.2L 8 7.2L 1.6 3.2L 1.6 1.6L 8 5.6L 14.4 1.6L 14.4 3.2Z"/>
+</defs>
+</svg>

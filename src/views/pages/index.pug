@@ -4,25 +4,60 @@ include ../mixins/footer
 block content
 
   main.container
-    .box.home__main
+    .box.home.home__main
       div.main__picture
         img(src='assets/pictures/img/profile_120.jpg')
       .mt-16
         h1.box__title.text-center Jacob Samuel G.
         p.
-          Jacob es autodidacta, le gusta descubrir y planificar proyectos, algunas veces salen a la luz, la mayoría de las veces permanecen en su libreta.
+          <span class="text-feature">J</span>acob es autodidacta, le gusta descubrir y planificar proyectos, algunas veces salen a la luz, la mayoría de veces permanecen en su libreta.
         p.
-          Actualmente está enfocado en la programación web, la ilustración digital y la teología bíblica.
+          <span class="text-feature">A</span>ctualmente está enfocado en la programación web, la ilustración digital y la teología bíblica.
         p.
-          Considera que el tiempo es importante, por ello ha decidido utilizar sabiamente cada día, cada oportunidad.
+          <span class="text-feature">C</span>onsidera que el tiempo es importante, por ello ha decidido utilizar sabiamente cada día, cada oportunidad.
         p.
-          Ocasionalmente disfruta escribir. A veces escribe cosas extrañas, como este párrafo, por ejemplo.
+          <a class="hidden-link" href="/hidden.html"><span class="text-feature">O</span></a>casionalmente disfruta escribir. A veces escribe cosas extrañas, como este párrafo, por ejemplo.
         p.
-          Bien sabido es que le encanta comer y probar cosas nuevas, sobre todo postres; invítale un frappé y te amará.
+          <span class="text-feature">B</span>ien sabido es que le encanta comer y probar cosas nuevas, sobre todo postres; invítale un frappé y te amará.
 
-    .box.home__links.mb-32
+    .box.home
       h2.box__title.text-center Enlaces
       p.
         Quizá lo encuentres en <a href='https://www.facebook.com/jsgnotas' target="_blank">Facebook</a>. Puedes mirar sus nada asombrosas fotografías en <a href='https://instagram.com/jacobs_views' target="_blank">Instagram</a> y leer algunas de las notas personales que comparte en <a style="white-space: nowrap;" href='https://enmidimension.tumblr.com' target="_blank">Tumblr</a>.
+
+    .box.home.home__projects.mb-32
+      h2.box__title.text-center Proyectos vigentes
+      <p class="mb-16">
+        <b>Inicia Aquí</b><br>
+        <span>Lectura introductoria al evangelio bíblico.</span><br>
+        | Vamos paso a paso hasta entender las bases que definen la Biblia y sus principales enseñanzas.
+        <br>
+        <a href="https://iniciaaqui.com" target="_blank">iniciaaqui.com</a>
+      <p/>
+      <p class="mb-16">
+        <b>Cosas de homeschoolers</b><br>
+        <span>La cara divertida del homeschooling.</span><br>
+        | Una página donde se proyecta de manera graciosa la escencia de educar en el hogar. Pronto habrá nuevo contenido motivacional para quienes quieren empezar o ya lo están haciendo.
+        <br>
+        <a href="https://fb.com/cosasdehomeschoolers" target="_blank">
+          | Cosas De Homeschoolers
+        </a>
+      <p/>
+      <p class="mb-16">
+        <b>Educacionante</b><br>
+        <span>Comunidad de educadores en el hogar.</span><br>
+        | Pretende convertirse en la mejor comunidad online de homeschoolers en español. Difundiendo recursos de calidad y creando espacios para compartir experiencias.
+        <br>
+        <a href="https://educacionante.com" target="_blank">
+          | educacionante.com
+        </a>
+      <p/>
+      <p>
+        <b>Desarrollo integral en niños bajo tutela</b><br>
+        <span>Administracion para instituciones beneficas.</span><br>
+        | Se trata de una guía en formato PDF dirigida a los encargados de casas hogar (orfanatos privados) que aún están comenzando y necesitan orientación inicial. Expone metodologías útiles y comprobadas, cuyo objetivo es el bienestar sostenible para los niños. <!-- Aunque se trata de un proyecto preliminar, está lectura es ideal para comenzar a implementar buenas prácticas que darán mejores frutos dentro de la institución. -->
+        <br>
+        <a href="https://app.box.com/s/m1rubzvmxr9p2k5p95folzjeoo1ldmh1" target="_blank">Previsualizar y/o descargar</a>
+      <p/>
 
   +footer('home')

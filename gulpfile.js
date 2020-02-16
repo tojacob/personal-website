@@ -77,7 +77,8 @@ function devStyles() {
 // Start local server, live reload and call others dev tasks
 function devServer(cb) {
   browserSync.init({
-    server: distFolder
+    server: distFolder,
+    open: false
   });
 
   watch(files.styles.src, parallel(devStyles));
